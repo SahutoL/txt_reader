@@ -10,10 +10,6 @@ from dotenv import load_dotenv
 import re, os
 
 load_dotenv()
-print(os.getenv('DATABASE_URL'))
-print(os.environ.get('SECRET_KEY'))
-print(os.getcwd())
-
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
@@ -155,4 +151,4 @@ def read(file_id):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    app.run(debug=False)
