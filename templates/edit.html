@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}ファイル編集{% endblock %}
+
+{% block content %}
+<h2>ファイル編集</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.filename.label }}
+        {{ form.filename(class="form-control", value=file.filename) }}
+    </div>
+    <div class="form-group">
+        {{ form.content.label }}
+        {{ form.content(class="form-control", rows=10, value=file.content) }}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+{% endblock %}

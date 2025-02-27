@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}閲覧 - {{ file.filename }}{% endblock %}
+
+{% block content %}
+<h2>{{ file.filename }}</h2>
+<div class="content">
+    {{ content | safe }}
+</div>
+<div class="navigation">
+    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">ダッシュボードに戻る</a>
+</div>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+    body {
+        font-family: 'Noto Sans JP', sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+    }
+    .content {
+        font-size: 20px;
+        line-height: 2.0;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        border-radius: 5px;
+    }
+    .navigation {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+    .btn:hover {
+        background-color: #0056b3;
+    }
+    @media (max-width: 768px) {
+        .content {
+            font-size: 18px;
+            padding: 10px;
+        }
+    }
+</style>
+{% endblock %}

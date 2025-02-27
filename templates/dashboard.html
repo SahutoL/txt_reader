@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}ダッシュボード{% endblock %}
+
+{% block content %}
+<h2>あなたのファイル</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ファイル名</th>
+            <th>アクション</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for file in files %}
+        <tr>
+            <td>{{ file.filename }}</td>
+            <td>
+                <a href="{{ url_for('read', file_id=file.id) }}" class="btn btn-info btn-sm">閲覧</a>
+                <a href="{{ url_for('edit', file_id=file.id) }}" class="btn btn-warning btn-sm">編集</a>
+                <form action="{{ url_for('delete', file_id=file.id) }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">削除</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
